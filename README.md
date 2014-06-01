@@ -1,3 +1,6 @@
+# Microscope - Discover Meteor
+
+# Folder structure
 * Code in the /server directory only runs on the server.
 * Code in the /client directory only runs on the client.
 * Everything else runs on both the client and server.
