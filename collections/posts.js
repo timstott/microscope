@@ -1,10 +1,15 @@
 Posts = new Meteor.Collection('posts');
 
-// Posts.allow({
-//   insert: function (userId, doc) {
-//     return !! userId;
-//   }
-// });
+Posts.allow({
+  update: ownsDocument,
+  remove: ownsDocument
+});
+
+Posts.deny({
+  update: function (userId, post, fieldNames) {
+    return (_.without(fieldNames, 'url', 'title').length > 0);
+  }
+});
 
 Meteor.methods({
   post: function (postAttributes) {
@@ -30,7 +35,7 @@ Meteor.methods({
 
     post = _.extend(_.pick(postAttributes, 'url', 'title', 'message'), {
       title: postAttributes.title + (this.isSimulation ? '(client)' : '(server)'),
-      userId: user.id,
+      userId: user._id,
       author: user.username,
       submitted: new Date().getTime()
     });
