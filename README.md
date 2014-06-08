@@ -1,4 +1,4 @@
-# Microscope - Discover Meteor
+# Microscope - Discover Meteor [![Build Status](https://travis-ci.org/timstott/microscope.svg)](https://travis-ci.org/timstott/microscope)
 
 # Notes to self
 
