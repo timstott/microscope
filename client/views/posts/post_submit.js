@@ -12,9 +12,8 @@ Template.postSubmit.events({
       if ( error ) {
         return console.log(error.reason);
       }
-      Router.go('postPage', {_id: id});
     });
-
+    Router.go('postsList');
 
   }
 });
