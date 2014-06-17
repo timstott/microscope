@@ -34,22 +34,12 @@ Meteor.methods({
     }
 
     post = _.extend(_.pick(postAttributes, 'url', 'title', 'message'), {
-      title: postAttributes.title + (this.isSimulation ? '(client)' : '(server)'),
+      title: postAttributes.title,
       userId: user._id,
       author: user.username,
       submitted: new Date().getTime(),
       commentsCount: 0
     });
-
-    // Latency compensation example
-    if (! this.isSimulation) {
-      var Future = Npm.require('fibers/future');
-      var future = new Future();
-      Meteor.setTimeout(function () {
-        future.return();
-      }, 3 * 1000);
-      future.wait();
-    }
 
     postId = Posts.insert(post);
 
