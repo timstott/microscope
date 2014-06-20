@@ -22,7 +22,7 @@ Template.postEdit.events({
     e.preventDefault();
 
     if (confirm("Delete this post?")) {
-      Post.remove(currentPostId);
+      Posts.remove(currentPostId);
       Router.go('postsList');
     }
   }
