@@ -33,7 +33,8 @@ if (Posts.find().count() === 0) {
     userId: sacha._id,
     author: sacha.profile.name,
     submitted: now - 3 * 3600 * 1000,
-    body: 'You sure can Tom!'
+    body: 'You sure can Tom!',
+    upvoters: [], votes: 0
   });
 
   Posts.insert({
@@ -42,7 +43,8 @@ if (Posts.find().count() === 0) {
     author: tom.profile.name,
     url: 'http://meteor.com',
     submitted: now - 10 * 3600 * 1000,
-    commentsCount: 0
+    commentsCount: 0,
+    upvoters: [], votes: 0
   });
 
   Posts.insert({
@@ -51,7 +53,8 @@ if (Posts.find().count() === 0) {
     author: tom.profile.name,
     url: 'http://themeteorbook.com',
     submitted: now - 12 * 3600 * 1000,
-    commentsCount: 0
+    commentsCount: 0,
+    upvoters: [], votes: 0
   });
 
   for (var i = 0; i < 10; i++) {
@@ -61,7 +64,8 @@ if (Posts.find().count() === 0) {
       userId: sacha._id,
       url: 'http://google.com/?q=test-' + i,
       submitted: now - i * 3600 * 1000,
-      commentsCount: 0
+      commentsCount: 0,
+      upvoters: [], votes: 0
     });
   }
 }
